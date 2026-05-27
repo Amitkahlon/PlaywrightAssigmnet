@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RunSettings>
-  <RunConfiguration>
-    <EnvironmentVariables>
-      <HEADED>1</HEADED>
-      <SLOWMO>500</SLOWMO>
-    </EnvironmentVariables>
-  </RunConfiguration>
   <LoggerRunSettings>
     <Loggers>
       <Logger friendlyName="html" enabled="True">

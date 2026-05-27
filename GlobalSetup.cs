@@ -8,7 +8,11 @@ public class GlobalSetup
     [OneTimeSetUp]
     public void RunBeforeAllTests()
     {
-        Environment.SetEnvironmentVariable("HEADED", "1");
-        Environment.SetEnvironmentVariable("SLOWMO", "500");
+        var isCi = Environment.GetEnvironmentVariable("CI") == "true";
+        if (!isCi)
+        {
+            Environment.SetEnvironmentVariable("HEADED", "1");
+            Environment.SetEnvironmentVariable("SLOWMO", "500");
+        }
     }
 }

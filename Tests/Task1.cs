@@ -1,5 +1,6 @@
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
+using PlaywrightAssignment.Helpers;
 using PlaywrightAssignment.Pages;
 using PlaywrightAssignment.Services;
 
@@ -33,19 +34,14 @@ public class DebuggingSectionTests : PageTest
     public async Task UniqueWordCountShouldMatchBetweenUiAndApi()
     {
         var uiText = await _wikiPage.GetDebuggingSectionTextAsync();
-        var uiUniqueWordCount = CountUniqueWords(uiText);
+        var uiUniqueWordCount = TextHelper.CountUniqueWords(uiText);
 
         var apiText = await _apiService.GetDebugSectionTextAsync();
-        var apiUniqueWordCount = CountUniqueWords(apiText);
+        var apiUniqueWordCount = TextHelper.CountUniqueWords(apiText);
 
         TestContext.WriteLine($"UI unique word count: {uiUniqueWordCount}");
         TestContext.WriteLine($"API unique word count: {apiUniqueWordCount}");
 
         Assert.That(apiUniqueWordCount, Is.EqualTo(uiUniqueWordCount));
     }
-
-    private static int CountUniqueWords(string text) =>
-        text.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries)
-            .Distinct(StringComparer.OrdinalIgnoreCase)
-            .Count();
 }
