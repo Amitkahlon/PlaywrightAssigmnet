@@ -7,13 +7,19 @@ namespace PlaywrightAssignment.Tests;
 [TestFixture]
 public class MicrosoftDevToolsTests : PageTest
 {
+    private PlaywrightWikiPage _wikiPage = null!;
+
+    [SetUp]
+    public async Task SetUp()
+    {
+        _wikiPage = new PlaywrightWikiPage(Page);
+        await _wikiPage.GotoAsync();
+    }
+
     [Test]
     public async Task AllTechnologyNamesShouldBeLinks()
     {
-        var wikiPage = new PlaywrightWikiPage(Page);
-        await wikiPage.GotoAsync();
-
-        var items = await wikiPage.GetMicrosoftDevToolsItemsAsync();
+        var items = await _wikiPage.GetMicrosoftDevToolsItemsAsync();
 
         Assert.Multiple(() =>
         {
