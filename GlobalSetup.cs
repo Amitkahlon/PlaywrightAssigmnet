@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace PlaywrightAssigmnet;
+namespace PlaywrightAssignment;
 
 [SetUpFixture]
 public class GlobalSetup

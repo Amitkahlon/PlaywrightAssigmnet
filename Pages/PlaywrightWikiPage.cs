@@ -1,7 +1,7 @@
 using System.Text;
 using Microsoft.Playwright;
 
-namespace PlaywrightAssigmnet.Pages;
+namespace PlaywrightAssignment.Pages;
 
 
 public class PlaywrightWikiPage

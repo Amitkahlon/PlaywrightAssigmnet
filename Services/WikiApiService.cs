@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 using Microsoft.Playwright;
 
-namespace PlaywrightAssigmnet.Services;
+namespace PlaywrightAssignment.Services;
 
 public class WikiApiService
 {

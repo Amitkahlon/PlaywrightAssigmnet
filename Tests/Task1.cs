@@ -1,8 +1,8 @@
 using Microsoft.Playwright.NUnit;
-using PlaywrightAssigmnet.Pages;
-using PlaywrightAssigmnet.Services;
+using PlaywrightAssignment.Pages;
+using PlaywrightAssignment.Services;
 
-namespace PlaywrightAssigmnet.Tests;
+namespace PlaywrightAssignment.Tests;
 
 [Parallelizable(ParallelScope.Self)]
 [TestFixture]
