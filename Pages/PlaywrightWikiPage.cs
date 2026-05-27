@@ -10,7 +10,7 @@ public class PlaywrightWikiPage
 
     private readonly ILocator _debuggingFeaturesHeader;
 
-    public const string BaseURl = "https://en.wikipedia.org/wiki/Playwright_(software)";
+    public const string BaseUrl = "https://en.wikipedia.org/wiki/Playwright_(software)";
 
 
     public PlaywrightWikiPage(IPage page)
@@ -22,7 +22,7 @@ public class PlaywrightWikiPage
 
     public async Task GotoAsync()
     {
-        await _page.GotoAsync(BaseURl);
+        await _page.GotoAsync(BaseUrl);
     }
 
     public async Task<IEnumerable<(string Name, bool IsLink)>> GetMicrosoftDevToolsItemsAsync()

@@ -6,10 +6,10 @@ namespace PlaywrightAssignment.Tests;
 
 [Parallelizable(ParallelScope.Self)]
 [TestFixture]
-public class WikiPageTests : PageTest
+public class DebuggingSectionTests : PageTest
 {
     [Test]
-    public async Task Task1_Test()
+    public async Task UniqueWordCountShouldMatchBetweenUiAndApi()
     {
         var wikiPage = new PlaywrightWikiPage(Page);
         await wikiPage.GotoAsync();
@@ -21,8 +21,8 @@ public class WikiPageTests : PageTest
         var apiText = await apiService.GetDebugSectionTextAsync();
         var apiUniqueWordCount = CountUniqueWords(apiText);
 
-        Console.WriteLine($"UI unique word count: {uiUniqueWordCount}");
-        Console.WriteLine($"API unique word count: {apiUniqueWordCount}");
+        TestContext.WriteLine($"UI unique word count: {uiUniqueWordCount}");
+        TestContext.WriteLine($"API unique word count: {apiUniqueWordCount}");
 
         Assert.That(apiUniqueWordCount, Is.EqualTo(uiUniqueWordCount));
     }
